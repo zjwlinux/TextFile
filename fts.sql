@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.62, for Win32 (AMD64)
 --
 -- Host: 127.0.0.1    Database: fts
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.5.62
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -54,7 +54,7 @@ CREATE TABLE `fts_client` (
   `description` varchar(512) CHARACTER SET utf8 DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   `security_key` varchar(512) CHARACTER SET utf8 DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL,
   `network_type` tinyint(4) DEFAULT NULL,
   `carrier_operator` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -148,7 +148,7 @@ CREATE TABLE `fts_download_file` (
   `length` bigint(20) NOT NULL,
   `md5` varchar(32) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL,
   `complete_time` datetime DEFAULT NULL,
   `version` int(11) NOT NULL,
   `priority` tinyint(4) NOT NULL,
@@ -226,7 +226,7 @@ CREATE TABLE `fts_upload_file` (
   `max_tr` int(11) DEFAULT NULL,
   `traffic` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9140 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9160 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,6 +235,7 @@ CREATE TABLE `fts_upload_file` (
 
 LOCK TABLES `fts_upload_file` WRITE;
 /*!40000 ALTER TABLE `fts_upload_file` DISABLE KEYS */;
+INSERT INTO `fts_upload_file` VALUES (9157,9,'PDF12.exe','信号\\PDF12.exe','D:\\PROJECTS\\文件\\服务器\\上传\\ZD01\\信号\\PDF12.exe',1,9,65,'2018-12-04 17:20:01','2018-12-04 17:20:25','2018-12-04 17:20:30',1,65939296,62515552,1,12,0,0,0,0,0),(9158,9,'PDF13.exe','信号\\PDF13.exe','D:\\PROJECTS\\文件\\服务器\\上传\\ZD01\\信号\\PDF13.exe',1,9,65,'2018-12-04 17:20:30','2018-12-04 17:20:54','2018-12-04 17:21:01',1,65939296,62515552,1,12,0,0,0,0,0),(9159,9,'[国家宝藏]千年古琴再被奏响10.mp4','信号\\[国家宝藏]千年古琴再被奏响10.mp4','D:\\PROJECTS\\文件\\服务器\\上传\\ZD01\\信号\\[国家宝藏]千年古琴再被奏响10.mp4',1,0,1504,'2018-12-04 17:21:09','2018-12-04 17:32:06','2018-12-04 17:32:32',20,17592320,16122295,4,12,0,0,0,0,0),(9153,9,'增量文件20.txt','信号\\增量文件20.txt','D:\\PROJECTS\\文件\\服务器\\上传\\ZD01\\信号\\增量文件20.txt',1,9,0,'2018-12-04 17:18:38','2018-12-04 17:18:40','2018-12-04 17:18:41',1,14,35,1,12,0,0,0,0,0),(9154,9,'PDF10.exe','信号\\PDF10.exe','D:\\PROJECTS\\文件\\服务器\\上传\\ZD01\\信号\\PDF10.exe',1,9,65,'2018-12-04 17:18:55','2018-12-04 17:19:13','2018-12-04 17:19:21',1,65939296,62515552,1,12,0,0,0,0,0),(9155,9,'T119.exe','信号\\T119.exe','D:\\PROJECTS\\文件\\服务器\\上传\\ZD01\\信号\\T119.exe',1,9,20,'2018-12-04 17:19:21','2018-12-04 17:19:28','2018-12-04 17:19:35',1,20689928,20418030,1,12,0,0,0,0,0),(9156,9,'PDF11.exe','信号\\PDF11.exe','D:\\PROJECTS\\文件\\服务器\\上传\\ZD01\\信号\\PDF11.exe',1,9,65,'2018-12-04 17:19:35','2018-12-04 17:19:54','2018-12-04 17:20:01',1,65939296,62515552,1,12,0,0,0,0,0);
 /*!40000 ALTER TABLE `fts_upload_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -548,4 +549,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-03 23:26:08
+-- Dump completed on 2018-12-04 21:11:23
