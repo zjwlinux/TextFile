@@ -63,7 +63,7 @@ CREATE TABLE `file_list` (
   `isNewFile` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`file_id`),
   UNIQUE KEY `file_list_file_id_uindex` (`file_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1506 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9758 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +72,7 @@ CREATE TABLE `file_list` (
 
 LOCK TABLES `file_list` WRITE;
 /*!40000 ALTER TABLE `file_list` DISABLE KEYS */;
+INSERT INTO `file_list` VALUES (9753,'1A88922FC7CA7AD8D7118CDACC63B8AF',10,1,12,5,40,1,0,0,'2018-12-14 11:49:15',393,268,9233,'','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090407-1.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090407-1.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件','.geo','20181213184713',NULL,'CCHX-CHANGCHUNXI-HUNCHUN-07122018-090407-1.geo','优先级一级','信号','二进制',40,392532281,157865185,114008400,'上传中',72,'6.84',0,392,1),(9754,'598F9463BA776DBAF1E4A8B23DFFFD16',10,1,12,5,16,1,0,0,'2018-12-14 11:49:15',238,222,9230,'','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\CHQS-HAERBIN-QIQIHAQR-08122018-102645-0.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件\\CHQS-HAERBIN-QIQIHAQR-08122018-102645-0.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件','.geo','20181213184714',NULL,'CHQS-HAERBIN-QIQIHAQR-08122018-102645-0.geo','优先级一级','信号','二进制',16,237846841,93876341,91744535,'上传中',98,'',0,237,1),(9755,'44299A89E94251D3955A0C35168298BD',10,1,12,5,25,1,0,0,'2018-12-14 11:49:15',238,213,9232,'','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\CHQX-HAERBIN-QIQIHAQR-08122018-081203-1.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件\\CHQX-HAERBIN-QIQIHAQR-08122018-081203-1.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件','.geo','20181213184716',NULL,'CHQX-HAERBIN-QIQIHAQR-08122018-081203-1.geo','优先级一级','信号','二进制',25,237680441,93909066,90299440,'上传中',96,'20.51',0,237,1),(9756,'96B517A7DEF96C917D6044A322CA7871',10,1,12,5,16,1,0,0,'2018-12-14 11:49:15',230,214,9229,'','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\GJHAX-BEIJING-HAERBIN-07122018-063933-1.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件\\GJHAX-BEIJING-HAERBIN-07122018-063933-1.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件','.geo','20181213184717',NULL,'GJHAX-BEIJING-HAERBIN-07122018-063933-1.geo','优先级一级','信号','二进制',16,229951161,90943129,88519882,'上传中',97,'6.84',0,229,1),(9757,'B0FCCCA0BCF5DD50970A8AFA8B665ADA',10,1,12,5,15,1,0,0,'2018-12-14 11:49:15',195,180,9231,'','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\GJHAX-BEIJING-HAERBIN-07122018-151113-1.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件\\GJHAX-BEIJING-HAERBIN-07122018-151113-1.geo','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1\\geo 文件','.geo','20181213184719',NULL,'GJHAX-BEIJING-HAERBIN-07122018-151113-1.geo','优先级一级','信号','二进制',15,194316601,77298406,75162599,'上传中',97,'',0,194,1);
 /*!40000 ALTER TABLE `file_list` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,11 +86,11 @@ DROP TABLE IF EXISTS `filescan_history`;
 CREATE TABLE `filescan_history` (
   `FILE_ID` int(11) NOT NULL AUTO_INCREMENT,
   `FILE_NAME` tinytext NOT NULL,
-  `FILE_SIZE` int(11) DEFAULT NULL,
+  `FILE_SIZE` bigint(20) DEFAULT NULL,
   `END_BLOCK` int(11) DEFAULT NULL,
   `CREATE_DATE` varchar(20) NOT NULL,
   UNIQUE KEY `filescan_history_FILE_ID_uindex` (`FILE_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +99,7 @@ CREATE TABLE `filescan_history` (
 
 LOCK TABLES `filescan_history` WRITE;
 /*!40000 ALTER TABLE `filescan_history` DISABLE KEYS */;
-INSERT INTO `filescan_history` VALUES (74,'路局刻盘\\新建文件夹\\京沈客专轨检车\\20180323京沈客专\\2 - J55601 - X - Z - Z - 160\\GJSX - BEIJING - SHENYANG - 23032018 - 071611 - 1 - (422 - 677).geo',22583000,22,'20181207135805'),(75,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\HSLX-SHANGHAI-HONGQIAO-05012017-094729-0(27-0).geo',22583000,22,'20181207135805');
+INSERT INTO `filescan_history` VALUES (69,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\test.txt',4,0,'20181214093850'),(70,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-085117-1.geo',9554361,95,'20181213184713'),(71,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090407-1.geo',392532281,392,'20181213184713'),(72,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\CHQS-HAERBIN-QIQIHAQR-08122018-102645-0.geo',237846841,237,'20181213184714'),(73,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\CHQX-HAERBIN-QIQIHAQR-08122018-081203-1.geo',237680441,237,'20181213184716'),(74,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\GJHAX-BEIJING-HAERBIN-07122018-063933-1.geo',229951161,229,'20181213184717'),(75,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件\\GJHAX-BEIJING-HAERBIN-07122018-151113-1.geo',194316601,194,'20181213184719'),(76,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件 - 副本\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-085117-1.geo',9554361,95,'20181214095023'),(77,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件 - 副本\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090407-1.geo',392532281,392,'20181214095023'),(78,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件 - 副本\\CHQS-HAERBIN-QIQIHAQR-08122018-102645-0.geo',237846841,237,'20181214095025'),(79,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件 - 副本\\CHQX-HAERBIN-QIQIHAQR-08122018-081203-1.geo',237680441,237,'20181214095026'),(80,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件 - 副本\\GJHAX-BEIJING-HAERBIN-07122018-063933-1.geo',229951161,229,'20181214095027'),(81,'C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号\\geo 文件 - 副本\\GJHAX-BEIJING-HAERBIN-07122018-151113-1.geo',194316601,194,'20181214095029');
 /*!40000 ALTER TABLE `filescan_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +118,7 @@ CREATE TABLE `fts_duanxin` (
   `STATUS` int(11) NOT NULL,
   `COMMENT` text,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +176,7 @@ CREATE TABLE `tb_paper` (
   `newFile` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tb_paper_id_uindex` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9876 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=255 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +185,7 @@ CREATE TABLE `tb_paper` (
 
 LOCK TABLES `tb_paper` WRITE;
 /*!40000 ALTER TABLE `tb_paper` DISABLE KEYS */;
-INSERT INTO `tb_paper` VALUES (9875,NULL,'信号\\2018\\12\\07\\其他\\HSLX-SHANGHAI-HONGQIAO-05012017-094729-0(27-0).geo','信号',1,22583000,9008233,'2018-12-07 15:40:58','2018-12-07 16:14:03',23,NULL,'新文件');
+INSERT INTO `tb_paper` VALUES (234,NULL,'信号\\2018\\12\\13\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-085117-1.geo','信号',1,9554361,3819965,'2018-12-13 18:49:04','2018-12-13 18:49:27',96,NULL,'新文件'),(235,NULL,'信号\\2018\\12\\13\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090407-1.geo','信号',1,392532281,157865185,'2018-12-13 18:49:04','2018-12-13 18:59:39',393,NULL,'新文件'),(236,NULL,'信号\\2018\\12\\13\\哈齐客专\\CHQS-HAERBIN-QIQIHAQR-08122018-102645-0.geo','信号',1,237846841,93876341,'2018-12-13 18:49:04','2018-12-13 19:05:34',238,NULL,'新文件'),(237,NULL,'信号\\2018\\12\\13\\哈齐客专\\CHQX-HAERBIN-QIQIHAQR-08122018-081203-1.geo','信号',1,237680441,93909066,'2018-12-13 18:49:04','2018-12-13 19:11:33',238,NULL,'新文件'),(238,NULL,'信号\\2018\\12\\13\\京哈高铁\\GJHAX-BEIJING-HAERBIN-07122018-063933-1.geo','信号',1,229951161,90943129,'2018-12-13 18:49:04','2018-12-13 19:17:12',230,NULL,'新文件'),(239,NULL,'信号\\2018\\12\\13\\京哈高铁\\GJHAX-BEIJING-HAERBIN-07122018-151113-1.geo','信号',1,194316601,77298406,'2018-12-13 18:49:04','2018-12-13 20:53:06',195,NULL,'新文件'),(240,NULL,'信号\\2018\\12\\14\\其他\\test.txt','信号',1,4,24,'2018-12-14 09:38:53','2018-12-14 09:38:57',1,NULL,'新文件'),(241,NULL,'信号\\2018\\12\\14\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-085117-1.geo','信号',1,9554361,3819965,'2018-12-14 09:50:23','2018-12-14 09:51:51',96,NULL,'新文件'),(242,NULL,'信号\\2018\\12\\14\\其他\\test.txt','信号',1,4,24,'2018-12-14 11:49:15','2018-12-14 11:49:43',1,NULL,'新文件'),(243,NULL,'信号\\2018\\12\\14\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-085117-1.geo','信号',1,9554361,3819965,'2018-12-14 11:49:15','2018-12-14 11:52:50',96,NULL,'新文件'),(244,NULL,'信号\\2018\\12\\13\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-085117-1.geo','信号',1,9554361,3819965,'2018-12-14 11:49:15','2018-12-14 11:55:57',96,NULL,'新文件'),(245,NULL,'信号\\2018\\12\\14\\京哈高铁\\GJHAX-BEIJING-HAERBIN-07122018-151113-1.geo','信号',1,194316601,77298406,'2018-12-14 09:51:02','2018-12-14 11:56:43',195,NULL,'新文件'),(246,NULL,'信号\\2018\\12\\14\\京哈高铁\\GJHAX-BEIJING-HAERBIN-07122018-151113-1.geo','信号',1,194316601,77298406,'2018-12-14 11:49:15','2018-12-14 11:56:46',195,NULL,'新文件'),(247,NULL,'信号\\2018\\12\\14\\哈齐客专\\CHQX-HAERBIN-QIQIHAQR-08122018-081203-1.geo','信号',1,237680441,93909066,'2018-12-14 09:51:02','2018-12-14 12:08:51',238,NULL,'新文件'),(248,NULL,'信号\\2018\\12\\14\\哈齐客专\\CHQX-HAERBIN-QIQIHAQR-08122018-081203-1.geo','信号',1,237680441,93909066,'2018-12-14 11:49:15','2018-12-14 12:09:26',238,NULL,'新文件'),(249,NULL,'信号\\2018\\12\\14\\京哈高铁\\GJHAX-BEIJING-HAERBIN-07122018-063933-1.geo','信号',1,229951161,90943129,'2018-12-14 09:51:02','2018-12-14 12:09:29',230,NULL,'新文件'),(250,NULL,'信号\\2018\\12\\14\\京哈高铁\\GJHAX-BEIJING-HAERBIN-07122018-063933-1.geo','信号',1,229951161,90943129,'2018-12-14 11:49:15','2018-12-14 12:10:36',230,NULL,'新文件'),(251,NULL,'信号\\2018\\12\\14\\哈齐客专\\CHQS-HAERBIN-QIQIHAQR-08122018-102645-0.geo','信号',1,237846841,93876341,'2018-12-14 09:51:02','2018-12-14 12:12:07',238,NULL,'新文件'),(252,NULL,'信号\\2018\\12\\14\\哈齐客专\\CHQS-HAERBIN-QIQIHAQR-08122018-102645-0.geo','信号',1,237846841,93876341,'2018-12-14 11:49:15','2018-12-14 12:12:17',238,NULL,'新文件'),(253,NULL,'信号\\2018\\12\\14\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090407-1.geo','信号',1,392532281,157865185,'2018-12-14 09:50:23','2018-12-14 12:18:42',393,NULL,'新文件'),(254,NULL,'信号\\2018\\12\\14\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090407-1.geo','信号',1,392532281,157865185,'2018-12-14 11:49:15','2018-12-14 12:18:50',393,NULL,'新文件');
 /*!40000 ALTER TABLE `tb_paper` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +203,7 @@ CREATE TABLE `tb_tranparam` (
   `ParamName` varchar(100) DEFAULT NULL,
   `ParamValue` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1687 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1890 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +212,7 @@ CREATE TABLE `tb_tranparam` (
 
 LOCK TABLES `tb_tranparam` WRITE;
 /*!40000 ALTER TABLE `tb_tranparam` DISABLE KEYS */;
-INSERT INTO `tb_tranparam` VALUES (1658,3,'TEMP_DIR','临时目录','D:\\PROJECTS\\文件\\目录配置\\临时目录'),(1659,3,'BACK_DIR','备份目录','D:\\PROJECTS\\文件\\目录配置\\备份目录'),(1660,3,'MSG_DIR','短信目录','D:\\PROJECTS\\文件\\目录配置\\短信目录'),(1661,3,'DOWNLOAD_DIR','下载目录','D:\\PROJECTS\\文件\\目录配置\\下载目录'),(1662,3,'REQUEST_DIR','请求目录','D:\\PROJECTS\\文件\\目录配置\\请求目录'),(1663,4,'SERVER_IP','服务器 IP','127.0.0.1'),(1664,4,'SERVER_PORT','服务器端口','11028'),(1665,5,'BLOCK_SIZE','文件分块大小（MB）','1'),(1666,5,'THREAD_POOL_SIZE','线程池大小（个）','1'),(1667,5,'PRIORITY1_WEIGHT','优先级1权重','5'),(1668,5,'PRIORITY2_WEIGHT','优先级2权重','4'),(1669,5,'PRIORITY3_WEIGHT','优先级3权重','3'),(1670,5,'PRIORITY4_WEIGHT','优先级4权重','2'),(1671,5,'PRIORITY5_WEIGHT','优先级5权重','1'),(1672,5,'EXPIRE_TIME','超时时间（毫秒）','3000'),(1673,5,'DATAGRAM_SIZE','数据包大小（字节）','3000'),(1674,14,'FILETYPE_BINARY','二进制','优先级一级'),(1675,14,'FILETYPE_IMAGE','图片','优先级二级'),(1676,14,'FILETYPE_VIDEO','视频','优先级三级'),(1677,13,'SOURCE_DIR','源目录','D:\\PROJECTS\\文件\\源文件\\轨道几何'),(1678,13,'UPLOAD_DIR','上传目录','D:\\PROJECTS\\文件\\上传文件\\轨道几何'),(1679,15,'SOURCE_DIR','源目录','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号'),(1680,15,'UPLOAD_DIR','上传目录','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1'),(1681,16,'FILETYPE_BINARY','二进制','优先级一级'),(1682,16,'FILETYPE_IMAGE','图片','优先级二级'),(1683,16,'FILETYPE_VIDEO','视频','优先级四级'),(1684,5,'UPLOAD_FILE_COUNT','上传文件数量（个）','10'),(1685,5,'DOWNLOAD_FILE_COUNT','下载文件数量（个）','1'),(1686,4,'DEFAULT_MAC','默认 MAC 地址','94B86DAE0100');
+INSERT INTO `tb_tranparam` VALUES (1861,3,'TEMP_DIR','临时目录','D:\\PROJECTS\\文件\\目录配置\\临时目录'),(1862,3,'BACK_DIR','备份目录','D:\\PROJECTS\\文件\\目录配置\\备份目录'),(1863,3,'MSG_DIR','短信目录','D:\\PROJECTS\\文件\\目录配置\\短信目录'),(1864,3,'DOWNLOAD_DIR','下载目录','D:\\PROJECTS\\文件\\目录配置\\下载目录'),(1865,3,'REQUEST_DIR','请求目录','D:\\PROJECTS\\文件\\目录配置\\请求目录'),(1866,4,'SERVER_IP','服务器 IP','218.81.89.199'),(1867,4,'SERVER_PORT','服务器端口','11028'),(1868,5,'BLOCK_SIZE','文件分块大小（MB）','1'),(1869,5,'THREAD_POOL_SIZE','线程池大小（个）','200'),(1870,5,'PRIORITY1_WEIGHT','优先级1权重','5'),(1871,5,'PRIORITY2_WEIGHT','优先级2权重','4'),(1872,5,'PRIORITY3_WEIGHT','优先级3权重','3'),(1873,5,'PRIORITY4_WEIGHT','优先级4权重','2'),(1874,5,'PRIORITY5_WEIGHT','优先级5权重','1'),(1875,5,'EXPIRE_TIME','超时时间（毫秒）','3000'),(1876,5,'DATAGRAM_SIZE','数据包大小（字节）','1400'),(1877,14,'FILETYPE_BINARY','二进制','优先级一级'),(1878,14,'FILETYPE_IMAGE','图片','优先级二级'),(1879,14,'FILETYPE_VIDEO','视频','优先级三级'),(1880,13,'SOURCE_DIR','源目录','D:\\PROJECTS\\文件\\源文件\\轨道几何'),(1881,13,'UPLOAD_DIR','上传目录','D:\\PROJECTS\\文件\\上传文件\\轨道几何'),(1882,15,'SOURCE_DIR','源目录','C:\\Users\\zjw\\Documents\\测试\\客户端\\源文件\\信号'),(1883,15,'UPLOAD_DIR','上传目录','C:\\Users\\zjw\\Documents\\测试\\客户端\\上传文件\\folder1'),(1884,16,'FILETYPE_BINARY','二进制','优先级一级'),(1885,16,'FILETYPE_IMAGE','图片','优先级二级'),(1886,16,'FILETYPE_VIDEO','视频','优先级四级'),(1887,5,'UPLOAD_FILE_COUNT','上传文件数量（个）','100'),(1888,5,'DOWNLOAD_FILE_COUNT','下载文件数量（个）','1'),(1889,4,'DEFAULT_MAC','默认 MAC 地址','7A31C1C319E6');
 /*!40000 ALTER TABLE `tb_tranparam` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -275,4 +276,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-07 17:41:40
+-- Dump completed on 2018-12-14 13:45:37
