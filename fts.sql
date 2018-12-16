@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.62, for Win32 (AMD64)
+-- MySQL dump 10.13  Distrib 5.7.20, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fts
 -- ------------------------------------------------------
--- Server version	5.5.62
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -58,7 +58,7 @@ CREATE TABLE `fts_client` (
   `network_type` tinyint(4) DEFAULT NULL,
   `carrier_operator` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `fts_client` (
 
 LOCK TABLES `fts_client` WRITE;
 /*!40000 ALTER TABLE `fts_client` DISABLE KEYS */;
-INSERT INTO `fts_client` VALUES (9,'WIN_ZJW','ZD01','94B86DAE0100','WIN_ZJW',1,'WXCS','2018-11-01 15:30:00',NULL,NULL);
+INSERT INTO `fts_client` VALUES (9,'WIN_ZJW','WIN_ZJW','94B86DAE0100','WIN_ZJW',0,'WXCS','2018-12-17 01:16:11',0,0),(10,'LZG','LZG','8C1645DC5BBF','',1,'WXCS','2018-12-16 20:49:01',0,0),(11,'MAC_ZJW','MAC_ZJW','7A31C1C319E6','',1,'WXCS','2018-12-16 23:04:25',0,0),(18,'BJ_01','BJ_01','8C16451E969B','',1,'WXCS','2018-12-16 15:21:08',0,0),(16,'CRX','CRX','8C16454CF17D','',1,'WXCS','2018-12-16 15:46:27',0,0),(17,'BJ_02','BJ_02','00232486C085','',1,'WXCS','2018-12-16 14:57:13',0,0);
 /*!40000 ALTER TABLE `fts_client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,6 +93,7 @@ CREATE TABLE `fts_client_bussiness_config` (
 
 LOCK TABLES `fts_client_bussiness_config` WRITE;
 /*!40000 ALTER TABLE `fts_client_bussiness_config` DISABLE KEYS */;
+INSERT INTO `fts_client_bussiness_config` VALUES (9,12,18,3),(9,12,17,2),(9,12,16,4),(10,12,17,1),(10,12,18,2),(10,12,16,4),(11,12,18,2),(11,12,17,1),(11,12,16,4);
 /*!40000 ALTER TABLE `fts_client_bussiness_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,6 +118,7 @@ CREATE TABLE `fts_client_config` (
   `config_version` int(11) DEFAULT NULL,
   `config_flag` tinyint(4) DEFAULT NULL,
   `bussiness_config_flag` tinyint(4) DEFAULT NULL,
+  `poolSize` int(11) DEFAULT NULL,
   PRIMARY KEY (`client_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -127,6 +129,7 @@ CREATE TABLE `fts_client_config` (
 
 LOCK TABLES `fts_client_config` WRITE;
 /*!40000 ALTER TABLE `fts_client_config` DISABLE KEYS */;
+INSERT INTO `fts_client_config` VALUES (9,3000,1000,5000,1000000,5,4,3,2,1,NULL,NULL,NULL,10),(10,3000,0,0,1000000,5,4,3,2,1,NULL,NULL,NULL,300),(11,3000,0,0,1000000,5,4,3,2,1,NULL,NULL,NULL,200);
 /*!40000 ALTER TABLE `fts_client_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +147,7 @@ CREATE TABLE `fts_download_file` (
   `path` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `is_compressed` tinyint(4) NOT NULL,
-  `is_message` int(11) NOT NULL,
+  `is_message` int(11) DEFAULT NULL,
   `length` bigint(20) NOT NULL,
   `md5` varchar(32) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
@@ -159,7 +162,7 @@ CREATE TABLE `fts_download_file` (
   `sender` varchar(100) DEFAULT NULL,
   `receiver` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +171,7 @@ CREATE TABLE `fts_download_file` (
 
 LOCK TABLES `fts_download_file` WRITE;
 /*!40000 ALTER TABLE `fts_download_file` DISABLE KEYS */;
-INSERT INTO `fts_download_file` VALUES (38,9,'系统总体流程图.png','D:\\PROJECTS\\文件\\服务器\\下载\\系统总体流程图.png',9,0,0,190431,'123','2018-12-01 17:09:22','2018-12-02 23:43:12','2018-12-02 22:40:19',11,1,0,0,0,0,'123,456','222,111,4321'),(39,9,'短消息.txt','D:\\PROJECTS\\文件\\服务器\\下载\\短消息.txt',9,0,1,41,'123',NULL,'2018-12-03 00:35:51','2018-12-03 00:35:52',17,1,0,0,0,0,'123,456','222,111,4321');
+INSERT INTO `fts_download_file` VALUES (38,9,'系统总体流程图.png','D:\\PROJECTS\\文件\\服务器\\下载\\系统总体流程图.png',9,0,0,190431,'123','2018-12-01 17:09:22','2018-12-02 23:43:12','2018-12-02 22:40:19',11,1,0,0,0,0,'123,456','222,111,4321'),(39,9,'短消息.txt','D:\\PROJECTS\\文件\\服务器\\下载\\短消息.txt',9,0,1,41,'123',NULL,'2018-12-03 00:35:51','2018-12-03 00:35:52',17,1,0,0,0,0,'123,456','222,111,4321'),(40,9,'管界分割.msi','D:\\测试\\服务器\\备份\\WIN_ZJW\\管界分割.msi.gzip',1,1,NULL,2720080,'046c0286c9906dcba5c365d86a9d0e26','2018-12-16 13:51:04','2018-12-16 13:51:04','2018-12-16 13:51:04',9,0,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `fts_download_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,7 +186,7 @@ CREATE TABLE `fts_file_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -192,7 +195,7 @@ CREATE TABLE `fts_file_type` (
 
 LOCK TABLES `fts_file_type` WRITE;
 /*!40000 ALTER TABLE `fts_file_type` DISABLE KEYS */;
-INSERT INTO `fts_file_type` VALUES (16,'视频'),(17,'二进制'),(18,'图片');
+INSERT INTO `fts_file_type` VALUES (16,'视频'),(17,'二进制'),(18,'图片'),(19,'2018');
 /*!40000 ALTER TABLE `fts_file_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +229,7 @@ CREATE TABLE `fts_upload_file` (
   `max_tr` int(11) DEFAULT NULL,
   `traffic` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9207 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13311 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +238,7 @@ CREATE TABLE `fts_upload_file` (
 
 LOCK TABLES `fts_upload_file` WRITE;
 /*!40000 ALTER TABLE `fts_upload_file` DISABLE KEYS */;
-INSERT INTO `fts_upload_file` VALUES (9206,9,'HSLX-SHANGHAI-HONGQIAO-05012017-094729-0(27-0).geo','信号\\2018\\12\\07\\其他\\HSLX-SHANGHAI-HONGQIAO-05012017-094729-0(27-0).geo','C:\\Users\\zjw\\Documents\\测试\\服务器\\上传\\ZD01\\信号\\2018\\12\\07\\其他\\HSLX-SHANGHAI-HONGQIAO-05012017-094729-0(27-0).geo',1,9,22,'2018-12-07 15:43:57','2018-12-07 16:14:02','2018-12-07 16:14:03',1,22583000,9008233,1,12,0,0,0,0,0);
+INSERT INTO `fts_upload_file` VALUES (13310,9,'CCHX-CHANGCHUNXI-HUNCHUN-07122018-090409-1.geo','信号\\二进制\\2018\\12\\17\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090409-1.geo','D:\\测试\\服务器\\上传\\信号\\WIN_ZJW\\2018\\12\\17\\长珲客专\\CCHX-CHANGCHUNXI-HUNCHUN-07122018-090409-1.geo',1,0,483,'2018-12-17 00:58:37','2018-12-17 01:17:20','2018-12-17 01:17:23',12,151449600,1146780,2,12,17,42,0,483,1112219);
 /*!40000 ALTER TABLE `fts_upload_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -247,7 +250,7 @@ DROP TABLE IF EXISTS `geo_line_code`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `geo_line_code` (
-  `LINE_CODE` varchar(4) NOT NULL,
+  `LINE_CODE` varchar(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `LINE_NAME` varchar(20) NOT NULL,
   `SUB_CODE` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -444,7 +447,7 @@ CREATE TABLE `sys_menu` (
 
 LOCK TABLES `sys_menu` WRITE;
 /*!40000 ALTER TABLE `sys_menu` DISABLE KEYS */;
-INSERT INTO `sys_menu` VALUES (1,NULL,'0001','终端状态','/admin/client',1,'','fa fa-train','1','',1,'2017-02-16 14:34:57',1,'2017-11-21 15:01:45'),(2,NULL,'0002','接收数据','',2,'','fa fa-cloud-upload','1','',1,'2017-11-10 09:25:51',1,'2017-11-10 11:21:59'),(3,NULL,'0003','发送数据','',3,'','fa fa-cloud-download','1','',1,'2017-11-01 15:22:37',1,'2017-11-10 11:21:13'),(4,NULL,'0004','数据统计','',4,'','fa fa-line-chart','1','',1,NULL,1,'2017-11-21 15:04:14'),(5,NULL,'0005','业务管理','',5,'','fa fa-book','1','',1,'2017-11-21 14:16:32',1,'2017-11-21 15:04:51'),(6,NULL,'0006','系统管理','',6,'','fa fa-cogs','1','',1,'2017-02-16 14:35:30',1,'2017-02-17 09:53:01'),(7,NULL,'0007','系统监控','/monitor',7,'','fa  fa-user-secret','1','monitor:*',1,'2017-07-06 15:55:37',1,'2017-11-10 11:26:32'),(8,6,'00060008','用户管理','/admin/sys/user',1,'','fa fa-user','1','user:*',1,'2017-02-16 14:40:52',1,'2017-02-16 14:40:52'),(9,6,'00060009','角色管理','/admin/sys/role',2,'','fa fa-user-plus','1','role:*',1,'2017-02-16 14:40:52',1,'2017-02-17 09:53:58'),(10,6,'00060010','菜单管理','/admin/sys/menu',3,'','fa fa-list','1','menu:*',1,'2017-02-16 14:41:43',1,'2017-02-17 10:24:35'),(11,6,'00060011','日志管理','/admin/sys/log',4,'','fa fa-database','1','log:*',1,'2017-02-16 14:42:38',1,'2017-02-17 09:54:15'),(12,6,'00060012','系统参数','/admin/sys/param',5,'','fa fa-cog','1','param:*',1,'2017-02-16 14:43:00',1,'2017-02-17 09:54:21'),(13,2,'00020013','接收列表','/admin/transfer/upload_file',1,'','fa fa-cloud-upload','1','upload_file:*',1,'2017-10-31 16:59:49',1,'2017-11-10 11:18:07'),(14,3,'00030014','发送列表','/admin/transfer/download_file',1,'','fa fa-cloud-download','1','download_file:*,upload:*',1,'2017-11-01 15:01:25',1,'2017-11-10 11:18:17'),(15,2,'00020015','历史数据','/admin/history/upload_file',2,'','fa  fa-cloud-upload','1','history_upload:*',1,'2017-11-01 15:22:47',1,'2017-11-24 10:15:52'),(16,3,'00030016','历史数据','/admin/history/download_file',2,'','fa  fa-cloud-download','1','history_download:*',1,'2017-11-07 18:19:43',1,'2017-11-24 10:15:42'),(17,5,'00050017','终端管理','/admin/transfer/client',1,'','fa fa-train','1','client:*',1,'2017-10-31 16:59:05',1,'2017-11-10 11:19:19'),(18,5,'00050018','传输配置','/admin/transfer/config',2,'','fa fa-sort-amount-asc','1','config:*',1,'2017-11-09 14:05:09',1,'2017-11-23 15:15:12'),(19,4,'00040019','接收数据统计','/admin/statistics/upload_file',1,'','fa fa-file-text','1','statistics_upload_file:*',1,'2017-11-27 10:02:20',1,'2017-11-29 12:51:21'),(20,4,'00040020','接收数据量统计','/admin/statistics/upload_traffic',2,'','fa fa-circle-o','1','statistics_upload_traffic:*',1,'2017-11-29 09:02:00',1,'2017-11-29 13:08:24'),(21,4,'00040021','发送数据统计','/admin/statistics/download_file',3,'','fa fa-circle-o','1','statistics_download_file:*',1,'2017-11-29 13:09:47',1,'2017-11-29 13:09:47'),(22,4,'00040022','发送数据量统计','/admin/statistics/download_traffic',4,'','fa fa-circle-o','1','statistics_download_traffic:*',1,'2017-11-29 13:10:36',1,'2017-11-29 13:10:36');
+INSERT INTO `sys_menu` VALUES (1,NULL,'0001','终端状态','/admin/client',1,'','fa fa-train','1','',1,'2017-02-16 14:34:57',1,'2017-11-21 15:01:45'),(2,NULL,'0002','接收数据','',2,'','fa fa-cloud-upload','1','',1,'2017-11-10 09:25:51',1,'2017-11-10 11:21:59'),(3,NULL,'0003','发送数据','',3,'','fa fa-cloud-download','1','',1,'2017-11-01 15:22:37',1,'2017-11-10 11:21:13'),(4,NULL,'0004','数据统计','',4,'','fa fa-line-chart','1','',1,NULL,1,'2017-11-21 15:04:14'),(5,NULL,'0005','业务管理','',5,'','fa fa-book','1','',1,'2017-11-21 14:16:32',1,'2017-11-21 15:04:51'),(6,NULL,'0006','系统管理','',6,'','fa fa-cogs','1','',1,'2017-02-16 14:35:30',1,'2017-02-17 09:53:01'),(7,NULL,'0007','系统监控','/monitor',7,'','fa  fa-user-secret','1','monitor:*',1,'2017-07-06 15:55:37',1,'2018-12-15 16:49:47'),(8,6,'00060008','用户管理','/admin/sys/user',1,'','fa fa-user','1','user:*',1,'2017-02-16 14:40:52',1,'2017-02-16 14:40:52'),(9,6,'00060009','角色管理','/admin/sys/role',2,'','fa fa-user-plus','1','role:*',1,'2017-02-16 14:40:52',1,'2017-02-17 09:53:58'),(10,6,'00060010','菜单管理','/admin/sys/menu',3,'','fa fa-list','1','menu:*',1,'2017-02-16 14:41:43',1,'2017-02-17 10:24:35'),(11,6,'00060011','日志管理','/admin/sys/log',4,'','fa fa-database','1','log:*',1,'2017-02-16 14:42:38',1,'2017-02-17 09:54:15'),(12,6,'00060012','系统参数','/admin/sys/param',5,'','fa fa-cog','1','param:*',1,'2017-02-16 14:43:00',1,'2017-02-17 09:54:21'),(13,2,'00020013','接收列表','/admin/transfer/upload_file',1,'','fa fa-cloud-upload','1','upload_file:*',1,'2017-10-31 16:59:49',1,'2017-11-10 11:18:07'),(14,3,'00030014','发送列表','/admin/transfer/download_file',1,'','fa fa-cloud-download','1','download_file:*,upload:*',1,'2017-11-01 15:01:25',1,'2017-11-10 11:18:17'),(15,2,'00020015','历史数据','/admin/history/upload_file',2,'','fa  fa-cloud-upload','1','history_upload:*',1,'2017-11-01 15:22:47',1,'2017-11-24 10:15:52'),(16,3,'00030016','历史数据','/admin/history/download_file',2,'','fa  fa-cloud-download','1','history_download:*',1,'2017-11-07 18:19:43',1,'2017-11-24 10:15:42'),(17,5,'00050017','终端管理','/admin/transfer/client',1,'','fa fa-train','1','client:*',1,'2017-10-31 16:59:05',1,'2017-11-10 11:19:19'),(18,5,'00050018','传输配置','/admin/transfer/config',2,'','fa fa-sort-amount-asc','1','config:*',1,'2017-11-09 14:05:09',1,'2017-11-23 15:15:12'),(19,4,'00040019','接收数据统计','/admin/statistics/upload_file',1,'','fa fa-file-text','1','statistics_upload_file:*',1,'2017-11-27 10:02:20',1,'2017-11-29 12:51:21'),(20,4,'00040020','接收数据量统计','/admin/statistics/upload_traffic',2,'','fa fa-circle-o','1','statistics_upload_traffic:*',1,'2017-11-29 09:02:00',1,'2017-11-29 13:08:24'),(21,4,'00040021','发送数据统计','/admin/statistics/download_file',3,'','fa fa-circle-o','1','statistics_download_file:*',1,'2017-11-29 13:09:47',1,'2017-11-29 13:09:47'),(22,4,'00040022','发送数据量统计','/admin/statistics/download_traffic',4,'','fa fa-circle-o','1','statistics_download_traffic:*',1,'2017-11-29 13:10:36',1,'2017-11-29 13:10:36');
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -468,7 +471,7 @@ CREATE TABLE `sys_param` (
 
 LOCK TABLES `sys_param` WRITE;
 /*!40000 ALTER TABLE `sys_param` DISABLE KEYS */;
-INSERT INTO `sys_param` VALUES ('port','11028'),('upload_dir','C:\\Users\\zjw\\Documents\\测试\\服务器\\上传'),('download_dir','C:\\Users\\zjw\\Documents\\测试\\服务器\\下载'),('temp_dir','C:\\Users\\zjw\\Documents\\测试\\服务器\\临时'),('backup_dir','C:\\Users\\zjw\\Documents\\测试\\服务器\\备份'),('ignored_extensions','_tmp'),('geo_split_dir','C:\\Users\\zjw\\Documents\\测试\\服务器\\管界分割');
+INSERT INTO `sys_param` VALUES ('port','11028'),('upload_dir','D:\\测试\\服务器\\上传'),('download_dir','D:\\测试\\服务器\\下载'),('temp_dir','D:\\测试\\服务器\\临时'),('backup_dir','D:\\测试\\服务器\\备份'),('ignored_extensions','_tmp'),('geo_split_dir','D:\\测试\\服务器\\管界分割'),('ip','218.81.89.199');
 /*!40000 ALTER TABLE `sys_param` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -562,7 +565,7 @@ CREATE TABLE `sys_user` (
 
 LOCK TABLES `sys_user` WRITE;
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
-INSERT INTO `sys_user` VALUES (1,'e10adc3949ba59abbe56e057f20f883e','admin','18691822869',NULL,NULL,'0:0:0:0:0:0:0:1','2018-12-07 09:22:36','1',1,'2017-01-12 10:26:46',1,'2017-11-29 15:28:07','0',NULL);
+INSERT INTO `sys_user` VALUES (1,'e10adc3949ba59abbe56e057f20f883e','admin','18691822869',NULL,NULL,'101.86.146.187','2018-12-16 14:18:11','1',1,'2017-01-12 10:26:46',1,'2017-11-29 15:28:07','0',NULL);
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -586,7 +589,7 @@ CREATE TABLE `sys_user_role` (
 
 LOCK TABLES `sys_user_role` WRITE;
 /*!40000 ALTER TABLE `sys_user_role` DISABLE KEYS */;
-INSERT INTO `sys_user_role` VALUES (1,2);
+INSERT INTO `sys_user_role` VALUES (1,2),(2,1);
 /*!40000 ALTER TABLE `sys_user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -599,4 +602,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-07 17:41:53
+-- Dump completed on 2018-12-17  1:22:39
