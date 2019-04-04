@@ -35,21 +35,17 @@ void setup() {
 }
 
 void loop() {
-
-  delay(50);    // 这个时间太小会出现无法预测的问题
+  delay(10);    // 这个时间太小会出现无法预测的问题
   memset(command, 0, sizeof(command));
 
   //当接收到的数据字节数不等于3的时候，表明当前命令无效，清空接收数据并返回
-  if (Serial.available() != 3){
-    while(Serial.available() > 0){
-      Serial.read();
-    }
+  if (Serial.available() < 3){
     return;
   }
 
   //读取命令到3个成员的字节数组
-  byte count = 0;
-  while(Serial.available() > 0){
+  int count = 0;
+  while(count < 3){
     command[count++] = Serial.read();        
   }
 

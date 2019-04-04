@@ -1,29 +1,44 @@
--- MySQL dump 10.13  Distrib 5.6.23, for osx10.8 (x86_64)
---
--- Host: 127.0.0.1    Database: detect
--- ------------------------------------------------------
--- Server version	5.6.23
+/*
+Navicat MySQL Data Transfer
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+Source Server         : Mysql
+Source Server Version : 50562
+Source Host           : localhost:3306
+Source Database       : detect
 
---
--- Table structure for table `antenna_uav`
---
+Target Server Type    : MYSQL
+Target Server Version : 50562
+File Encoding         : 65001
 
+Date: 2019-03-30 14:44:50
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for antenna_history
+-- ----------------------------
+DROP TABLE IF EXISTS `antenna_history`;
+CREATE TABLE `antenna_history` (
+  `DEVICE_ID` varchar(20) NOT NULL,
+  `CONFIGURE_ID` int(11) NOT NULL,
+  `ROUND` bigint(20) NOT NULL,
+  `SEQUENCE` int(11) NOT NULL,
+  `STRENGTH` float DEFAULT NULL,
+  PRIMARY KEY (`CONFIGURE_ID`,`DEVICE_ID`,`ROUND`,`SEQUENCE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of antenna_history
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for antenna_uav
+-- ----------------------------
 DROP TABLE IF EXISTS `antenna_uav`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `antenna_uav` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `DEVICE_ID` varchar(20) NOT NULL,
   `CENTER_FREQ` bigint(20) DEFAULT NULL,
   `START_FREQ` bigint(20) DEFAULT NULL,
   `END_FREQ` bigint(20) DEFAULT NULL,
@@ -31,109 +46,152 @@ CREATE TABLE `antenna_uav` (
   `FINDING_TIME` datetime DEFAULT NULL,
   `AREA` tinyint(4) DEFAULT NULL,
   `ROUND` bigint(20) DEFAULT NULL,
-  `DEVICE_ID` varchar(20) DEFAULT NULL,
   `DISTANCE` double DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=3099 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `antenna_uav`
---
+-- ----------------------------
+-- Records of antenna_uav
+-- ----------------------------
 
-LOCK TABLES `antenna_uav` WRITE;
-/*!40000 ALTER TABLE `antenna_uav` DISABLE KEYS */;
-INSERT INTO `antenna_uav` VALUES (1,2663,2660,2666,-100,'2019-01-15 21:55:01',1,100000120,'DEVICE01',120),(2,2663,2660,2666,-100,'2019-01-15 21:55:01',2,100000120,'DEVICE01',120),(3,2663,2660,2666,-100,'2019-01-15 21:55:01',3,100000120,'DEVICE01',120),(4,2663,2660,2666,-100,'2019-01-15 21:55:01',1,100000123,'DEVICE01',120),(5,2663,2660,2666,-100,'2019-01-15 21:55:01',2,100000123,'DEVICE01',120),(6,2663,2660,2666,-70,'2019-01-15 21:55:01',3,100000123,'DEVICE01',120),(7,2663,2660,2666,-100,'2019-01-15 21:55:01',4,100000123,'DEVICE01',120),(8,2663,2660,2666,-100,'2019-01-15 21:55:01',5,100000123,'DEVICE01',120),(9,2663,2660,2666,-80,'2019-01-15 21:55:01',6,100000123,'DEVICE01',120),(10,2663,2660,2666,-100,'2019-01-15 21:55:01',7,100000123,'DEVICE01',120);
-/*!40000 ALTER TABLE `antenna_uav` ENABLE KEYS */;
-UNLOCK TABLES;
+-- ----------------------------
+-- Table structure for config_antenna
+-- ----------------------------
+DROP TABLE IF EXISTS `config_antenna`;
+CREATE TABLE `config_antenna` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `START_FREQ` varchar(50) DEFAULT NULL,
+  `END_FREQ` varchar(50) DEFAULT NULL,
+  `REF_LEVEL` int(11) DEFAULT NULL,
+  `RBW` varchar(50) DEFAULT NULL,
+  `VBW` varchar(50) DEFAULT NULL,
+  `SWEEP_TIME` int(11) DEFAULT NULL,
+  `RISE_DATA_COUNT` int(11) DEFAULT NULL,
+  `RISE_ANGLE` int(11) DEFAULT NULL,
+  `FALL_ANGLE` int(11) DEFAULT NULL,
+  `MAX_BAND_WIDTH` varchar(50) DEFAULT NULL,
+  `MIN_BAND_WIDTH` varchar(50) DEFAULT NULL,
+  `AVERAGE_COUNT` int(11) DEFAULT NULL,
+  `TOP_VARIANCE_LIMIT` float DEFAULT NULL,
+  `MIN_TOP_AVG_STRENGTH` int(11) DEFAULT NULL COMMENT '特定 ref level 下，顶端平均强度的最小值',
+  `DISTANCE_ID` int(11) DEFAULT NULL,
+  `VALID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `device`
---
+-- ----------------------------
+-- Records of config_antenna
+-- ----------------------------
+INSERT INTO `config_antenna` VALUES ('1', '5.75G', '5.85G', '-50', '300K', '300K', '20', '5', '45', '-50', '15M', '8M', '30', '0.1', '-120', '1', '0');
+INSERT INTO `config_antenna` VALUES ('2', '2.4G', '2.5G', '-40', '300K', '300K', '20', '5', '45', '-50', '15M', '8M', '30', '0.1', '-90', '1', '1');
 
+-- ----------------------------
+-- Table structure for config_distance
+-- ----------------------------
+DROP TABLE IF EXISTS `config_distance`;
+CREATE TABLE `config_distance` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `D10` varchar(50) DEFAULT NULL,
+  `D50` varchar(50) DEFAULT NULL,
+  `D100` varchar(50) DEFAULT NULL,
+  `D200` varchar(50) DEFAULT NULL,
+  `D300` varchar(50) DEFAULT NULL,
+  `D400` varchar(50) DEFAULT NULL,
+  `D600` varchar(50) DEFAULT NULL,
+  `D800` varchar(50) DEFAULT NULL,
+  `D1000` varchar(50) DEFAULT NULL,
+  `D1500` varchar(50) DEFAULT NULL,
+  `D2000` varchar(50) DEFAULT NULL,
+  `D3000` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of config_distance
+-- ----------------------------
+INSERT INTO `config_distance` VALUES ('1', '-68', '-70', '-72', '-80.8', '-82', '-83', '-84', '-86', '-90', '-100', '-120', '-150');
+INSERT INTO `config_distance` VALUES ('2', '-68', '-70', '-72', '-80.8', '-82', '-83', '-84', '-86', '-90', '-100', '-120', '-150');
+
+-- ----------------------------
+-- Table structure for config_port
+-- ----------------------------
+DROP TABLE IF EXISTS `config_port`;
+CREATE TABLE `config_port` (
+  `DEVICE_ID` varchar(20) NOT NULL,
+  `DEVICE` varchar(20) DEFAULT NULL,
+  `RATE` bigint(20) DEFAULT NULL,
+  `PORT` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of config_port
+-- ----------------------------
+INSERT INTO `config_port` VALUES ('DEVICE01', 'COMPASS', '9600', '0');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'GPS', '9600', '0');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'SWITCH', '9600', '3');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'PROBE1', '0', '5');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'PROBE2', '0', '7');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'PROBE3', '0', '6');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'PROBE4', '0', '11');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'PROBE5', '0', '10');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'PROBE6', '0', '9');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'PROBE7', '0', '8');
+INSERT INTO `config_port` VALUES ('DEVICE01', 'PROBE8', '0', '3');
+
+-- ----------------------------
+-- Table structure for device
+-- ----------------------------
 DROP TABLE IF EXISTS `device`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `device` (
   `DEVICE_ID` varchar(20) NOT NULL,
+  `HOST_NAME` varchar(255) DEFAULT NULL,
+  `HOST_IP` varchar(255) DEFAULT NULL,
   `GPS_LANTITUDE` double DEFAULT NULL,
   `GPS_LONGITUDE` double DEFAULT NULL,
   `GPS_UPDATING_TIME` datetime DEFAULT NULL,
   `COMPASS_ANGEL` double DEFAULT NULL,
   `COMPASS_UPDATING_TIME` datetime DEFAULT NULL,
-  `DEVICE_NAME` varchar(50) DEFAULT NULL,
+  `PROBE_DISTANCE_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`DEVICE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `device`
---
+-- ----------------------------
+-- Records of device
+-- ----------------------------
+INSERT INTO `device` VALUES ('DEVICE01', 'YIMIN100_MAC', '172.20.10.2', '32.163889', '119.043056', '2019-01-17 05:03:14', '0', '2019-01-19 05:18:26', '2');
 
-LOCK TABLES `device` WRITE;
-/*!40000 ALTER TABLE `device` DISABLE KEYS */;
-INSERT INTO `device` VALUES ('DEVICE01',39.9463111111,116.439403333,'2019-01-14 14:47:44',10,'2019-01-14 14:47:55',NULL);
-/*!40000 ALTER TABLE `device` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `probe_brand`
---
-
+-- ----------------------------
+-- Table structure for probe_brand
+-- ----------------------------
 DROP TABLE IF EXISTS `probe_brand`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `probe_brand` (
   `MAC_PREFIX` varchar(20) DEFAULT NULL,
   `BRAND` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `probe_brand`
---
+-- ----------------------------
+-- Records of probe_brand
+-- ----------------------------
+INSERT INTO `probe_brand` VALUES ('4C:7C:5F', '苹果6');
+INSERT INTO `probe_brand` VALUES ('04:4B:ED', '苹果6ZJW');
+INSERT INTO `probe_brand` VALUES ('60:60:1F', '大疆3');
+INSERT INTO `probe_brand` VALUES ('B4:0B:44', '锤子');
 
-LOCK TABLES `probe_brand` WRITE;
-/*!40000 ALTER TABLE `probe_brand` DISABLE KEYS */;
-INSERT INTO `probe_brand` VALUES ('60:60:1F','大疆'),('4C:7C:5F','苹果6');
-/*!40000 ALTER TABLE `probe_brand` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `probe_uav`
---
-
+-- ----------------------------
+-- Table structure for probe_uav
+-- ----------------------------
 DROP TABLE IF EXISTS `probe_uav`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `probe_uav` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `DEVICE_ID` varchar(20) NOT NULL,
   `MAC` varchar(255) DEFAULT NULL,
-  `STRENGTH` varchar(255) DEFAULT NULL,
+  `STRENGTH` double DEFAULT NULL,
   `FINDING_TIME` datetime DEFAULT NULL,
   `AREA` tinyint(4) DEFAULT NULL,
-  `DEVICE_ID` varchar(20) DEFAULT NULL,
   `DISTANCE` double DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`ID`,`DEVICE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `probe_uav`
---
-
-LOCK TABLES `probe_uav` WRITE;
-/*!40000 ALTER TABLE `probe_uav` DISABLE KEYS */;
-/*!40000 ALTER TABLE `probe_uav` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-01-25 22:27:12
+-- ----------------------------
+-- Records of probe_uav
+-- ----------------------------
