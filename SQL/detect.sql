@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50562
 File Encoding         : 65001
 
-Date: 2019-03-30 14:44:50
+Date: 2019-04-11 23:43:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -48,7 +48,7 @@ CREATE TABLE `antenna_uav` (
   `ROUND` bigint(20) DEFAULT NULL,
   `DISTANCE` double DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3099 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10897 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of antenna_uav
@@ -74,6 +74,7 @@ CREATE TABLE `config_antenna` (
   `AVERAGE_COUNT` int(11) DEFAULT NULL,
   `TOP_VARIANCE_LIMIT` float DEFAULT NULL,
   `MIN_TOP_AVG_STRENGTH` int(11) DEFAULT NULL COMMENT '特定 ref level 下，顶端平均强度的最小值',
+  `MAX_TOP_AVG_RATIO` int(11) DEFAULT NULL,
   `DISTANCE_ID` int(11) DEFAULT NULL,
   `VALID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`)
@@ -82,8 +83,8 @@ CREATE TABLE `config_antenna` (
 -- ----------------------------
 -- Records of config_antenna
 -- ----------------------------
-INSERT INTO `config_antenna` VALUES ('1', '5.75G', '5.85G', '-50', '300K', '300K', '20', '5', '45', '-50', '15M', '8M', '30', '0.1', '-120', '1', '0');
-INSERT INTO `config_antenna` VALUES ('2', '2.4G', '2.5G', '-40', '300K', '300K', '20', '5', '45', '-50', '15M', '8M', '30', '0.1', '-90', '1', '1');
+INSERT INTO `config_antenna` VALUES ('1', '5.75G', '5.85G', '-50', '300K', '300K', '20', '5', '45', '-50', '15M', '8M', '30', '0.1', '-120', '97', '1', '0');
+INSERT INTO `config_antenna` VALUES ('2', '2.4G', '2.5G', '-50', '300K', '300K', '20', '5', '45', '-50', '15M', '8M', '20', '0.1', '-120', '97', '1', '1');
 
 -- ----------------------------
 -- Table structure for config_distance
@@ -103,14 +104,15 @@ CREATE TABLE `config_distance` (
   `D1500` varchar(50) DEFAULT NULL,
   `D2000` varchar(50) DEFAULT NULL,
   `D3000` varchar(50) DEFAULT NULL,
+  `MEMO` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of config_distance
 -- ----------------------------
-INSERT INTO `config_distance` VALUES ('1', '-68', '-70', '-72', '-80.8', '-82', '-83', '-84', '-86', '-90', '-100', '-120', '-150');
-INSERT INTO `config_distance` VALUES ('2', '-68', '-70', '-72', '-80.8', '-82', '-83', '-84', '-86', '-90', '-100', '-120', '-150');
+INSERT INTO `config_distance` VALUES ('1', '-80', '-90', '-93', '-94', '-95', '-96', '-97', '-98', '-100', '-105', '-108', '-150', 'REF LEVEL -50');
+INSERT INTO `config_distance` VALUES ('2', '-68', '-70', '-72', '-80.8', '-82', '-83', '-84', '-86', '-100', '-105', '-108', '-150', 'REF LEVEL -20');
 
 -- ----------------------------
 -- Table structure for config_port
@@ -152,13 +154,16 @@ CREATE TABLE `device` (
   `COMPASS_ANGEL` double DEFAULT NULL,
   `COMPASS_UPDATING_TIME` datetime DEFAULT NULL,
   `PROBE_DISTANCE_ID` int(11) DEFAULT NULL,
+  `VALID` tinyint(4) DEFAULT NULL,
+  `MEMO` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`DEVICE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of device
 -- ----------------------------
-INSERT INTO `device` VALUES ('DEVICE01', 'YIMIN100_MAC', '172.20.10.2', '32.163889', '119.043056', '2019-01-17 05:03:14', '0', '2019-01-19 05:18:26', '2');
+INSERT INTO `device` VALUES ('DEVICE01', 'YIMIN100_MAC', '172.20.10.2', '39.6410247', '116.67531967', '2019-01-17 05:03:14', '0', '2019-01-19 05:18:26', '2', '1', '采育镇测试');
+INSERT INTO `device` VALUES ('DEVICE02', 'YIMIN100_MAC', '172.20.10.2', '31.248801', '119.826486', '2019-01-17 05:03:14', '0', '2019-01-19 05:18:26', '2', '0', '宜兴展会');
 
 -- ----------------------------
 -- Table structure for probe_brand
